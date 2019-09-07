@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>组件嵌套</title>
+    <!-- 提供了react对象 -->
+    <script src='../base/react.min.js'></script>
+    <!-- 提供了reactdom对象 -->
+    <script src='../base/react-dom.min.js'></script>
+    <!-- 帮助浏览器解析jsx -->
+    <script src='../base/browser.min.js'></script>
+</head>
+<body>
+    <div id="app">
+
+    </div>
+    <script type='text/babel'>
+        let Father = React.createClass({
+            getInitialState(){
+                return{
+                    hairype:'大波浪'
+                }
+            },
+            changeHair(){
+                this.setState({hairype:'锡纸烫'})
+            },
+            render(){
+                return(
+                    <div>
+                        <h3>父组件</h3>
+                        <button onClick={this.changeHair}>改发型</button>
+                    </div>
+                )
+            }
+        })
+        let Son = React.createClass({
+            getDefaultProps(){
+                render(){
+                    return{
+                        hair:'公主切'
+                    }
+                }
+            }           
+        })
+        ReactDOM.render(<Father/>,app)
+    </script>
+</body>
+</html>
